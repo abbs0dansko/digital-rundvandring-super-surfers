@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GetPlaneInformation : MonoBehaviour
 {
@@ -25,9 +26,10 @@ public class GetPlaneInformation : MonoBehaviour
                 switch (planeName)
                 {
                     case "Rafale":
-                        Debug.Log("Rafale is a plane");
+                        Debug.Log("You clicked on rafale");
                         break;
                 }
+                SceneManager.LoadScene(1);
             }
         }
     }
