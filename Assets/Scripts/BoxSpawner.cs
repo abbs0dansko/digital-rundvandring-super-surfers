@@ -13,6 +13,8 @@ public class BoxSpawner : MonoBehaviour
     GameObject boxPrefab;
 
     bool coolDown;
+    public float forwardForce = 2f;
+    public float upForce = 0.5f;
 
     /// <summary>
     /// Method to create and propel a box
@@ -27,7 +29,7 @@ public class BoxSpawner : MonoBehaviour
             GameObject go = Instantiate(boxPrefab, transform.position - transform.up * 0.33f, transform.rotation);
 
             // transform.forward + transform.up * 0.5f is the direction of the force. In this case its slightly angled up (transform.up * 0.5f) and away from the camera (transform.forward)
-            go.GetComponent<Rigidbody>().AddForce((transform.forward + transform.up * 0.5f) * 5, ForceMode.Impulse);
+            go.GetComponent<Rigidbody>().AddForce((transform.forward * forwardForce + transform.up * upForce) * 5, ForceMode.Impulse);
             StartCoroutine(CoolDownRoutine());
         }
     }
