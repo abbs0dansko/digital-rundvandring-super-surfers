@@ -34,6 +34,7 @@ public class GetPlaneInformation : MonoBehaviour
                 c.a = 100;
                 panel.color = c;
                 // Do something with the object that was hit by the raycast.
+                SceneManager.LoadScene(1);
             }
         }
 
