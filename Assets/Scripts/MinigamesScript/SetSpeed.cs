@@ -5,6 +5,9 @@ using UnityEngine;
 public class SetSpeed : MonoBehaviour
 {
     public Rigidbody rb;
+    // public GameObject ring;
+    public GameObject prefab;
+    private bool hit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +17,18 @@ public class SetSpeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameObject.transform.position.z < -10) {
+            if (hit == false) {
+                Debug.Log("Du förlorade");
+            }
+            Instantiate(prefab, new Vector3(Random.Range(-5.0f, 5.0f), 0, 88 ), Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        hit = true;
+        
     }
 }

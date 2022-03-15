@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InstantiateRing : MonoBehaviour
 {
-    public GameObject plane;
     public GameObject prefab;
     // Start is called before the first frame update
     void Start()
@@ -17,6 +16,6 @@ public class InstantiateRing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // prefab.transform.position.x += 2; 
+
     }
 }
