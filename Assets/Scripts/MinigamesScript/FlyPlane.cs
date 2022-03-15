@@ -17,19 +17,19 @@ public class FlyPlane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        aKey = Input.GetKeyDown("a");
-        dKey = Input.GetKeyDown("d");
+        aKey = Input.GetKey("a");
+        dKey = Input.GetKey("d");
     }
 
     void FixedUpdate() {
         if (aKey) {
             rb.velocity = new Vector3(-10, 0, 0);
+            return;
         }
         if (dKey) {
             rb.velocity = new Vector3(10,0,0);
+            return;
         }
-        // else {
-        //     rb.velocity = new Vector3(0, 0, 0);
-        // }
+        rb.velocity = new Vector3(0,0,0);
     }
 }
