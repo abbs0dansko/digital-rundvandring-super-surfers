@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SetSpeed : MonoBehaviour
 {
@@ -18,9 +19,10 @@ public class SetSpeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.position.z < -10) {
+        if (gameObject.transform.position.z < -5) {
             if (hit == false) {
                 Debug.Log("Du förlorade");
+                SceneManager.LoadScene(0);
             }
             Instantiate(prefab, new Vector3(Random.Range(-4.0f, 4.0f), 0, 88 ), Quaternion.identity);
             Destroy(gameObject);
