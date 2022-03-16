@@ -20,7 +20,7 @@ public class FlyPlane : MonoBehaviour
     {
         aKey = Input.GetKey("a");
         dKey = Input.GetKey("d");
-        Debug.Log(score);
+        // Debug.Log(score);
     }
 
     void FixedUpdate() {

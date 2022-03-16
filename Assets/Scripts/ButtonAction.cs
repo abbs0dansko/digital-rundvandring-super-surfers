@@ -45,11 +45,13 @@ public class ButtonAction : MonoBehaviour
         {
             // panelOb.gameObject.enabled = false;
             
-            anim.SetBool("flyAway", true);
+            // anim.SetBool("flyAway", true);
 
             animBool = false;
             panelOb.gameObject.SetActive(false);
+            
             StartCoroutine(CoolDownRoutine());
+            SceneManager.LoadScene(1);
         }
 
 
@@ -61,10 +63,9 @@ public class ButtonAction : MonoBehaviour
 
     {
         
-        WaitForSeconds waitForSeconds = new WaitForSeconds(3.0f);
+        WaitForSeconds waitForSeconds = new WaitForSeconds(6f);
 
         yield return waitForSeconds;
-        SceneManager.LoadScene(1);
     }
 
 

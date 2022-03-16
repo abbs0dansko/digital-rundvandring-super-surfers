@@ -10,7 +10,7 @@ public class InstantiateRing : MonoBehaviour
     {
         for (int i=0; i < 10; i++) {
             
-            GameObject test = Instantiate(prefab, new Vector3(Random.Range(-4.0f, 4.0f), -1, 8 + 10*i ), Quaternion.identity);
+            GameObject test = Instantiate(prefab, new Vector3(Random.Range(-4.0f, 4.0f), -1, 20 + 10*i ), Quaternion.identity);
             test.transform.parent = gameObject.transform;
         }
     }

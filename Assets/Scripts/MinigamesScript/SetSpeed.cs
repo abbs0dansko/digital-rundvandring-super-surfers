@@ -19,12 +19,13 @@ public class SetSpeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.position.z < -5) {
+        if (gameObject.transform.position.z < -1) {
             if (hit == false) {
                 Debug.Log("Du förlorade");
                 SceneManager.LoadScene(0);
             }
-            Instantiate(prefab, new Vector3(Random.Range(-4.0f, 4.0f), 0, 88 ), Quaternion.identity);
+            GameObject test = Instantiate(prefab, new Vector3(Random.Range(-4.0f, 4.0f), 0, 112 ), Quaternion.identity);
+            test.transform.parent = GameObject.Find("AR Session Origin").transform;
             Destroy(gameObject);
         }
     }
