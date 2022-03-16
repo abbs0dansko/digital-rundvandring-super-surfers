@@ -10,6 +10,10 @@ using UnityEngine.XR.ARSubsystems;
 /// </summary>
 public class PlaneFinder : MonoBehaviour
 {
+    public GameObject plane;
+    public Transform camPos;
+    public Transform camPosDir;
+    public GameObject ARCamera;
     // The text component to write our findings too
     [SerializeField]
     TextMeshProUGUI planeInfoText;
@@ -29,9 +33,25 @@ public class PlaneFinder : MonoBehaviour
         // List for storing the objects that the ray intersects with
         List<ARRaycastHit> hits = new();
 
+        Ray ray = new Ray(ARCamera.transform.position, new Vector3(0,0,1));
+        RaycastHit Hit;
+        // specificera att det är planet
+        if (Physics.Raycast(ray, out Hit) && Hit.collider.gameObject.name == "Rafale") {
+            plane.GetComponent<Outline>().enabled = true;
+        }
+        else{
+            plane.GetComponent<Outline>().enabled = false;
+        }
         // Casts a ray and returns true if something (TrackableType.PlaneWithinBounds in this case) has been hit
         if (raycastManager.Raycast(new Vector2(Screen.width / 2, Screen.height / 2), hits, TrackableType.PlaneWithinBounds))
         {
+
+
+            
+            var hitPosition = hits[0].pose;
+            Instantiate(plane, hitPosition.position, hitPosition.rotation);
+            // Instantiate(plane, hitPosition.position, hitPosition.rotation);
+
             // Check for making sure the object is of correct type
             // Also checks the first item in the hits list as that should be the first object that intersects with the raycast
             if (hits[0].hitType == TrackableType.PlaneWithinBounds)
