@@ -8,6 +8,7 @@ public class FlyPlane : MonoBehaviour
 
     private bool aKey = false;
     private bool dKey = false;
+    public int score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,7 @@ public class FlyPlane : MonoBehaviour
     {
         aKey = Input.GetKey("a");
         dKey = Input.GetKey("d");
+        Debug.Log(score);
     }
 
     void FixedUpdate() {

@@ -8,6 +8,7 @@ public class SetSpeed : MonoBehaviour
     // public GameObject ring;
     public GameObject prefab;
     private bool hit = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class SetSpeed : MonoBehaviour
             if (hit == false) {
                 Debug.Log("Du förlorade");
             }
-            Instantiate(prefab, new Vector3(Random.Range(-5.0f, 5.0f), 0, 88 ), Quaternion.identity);
+            Instantiate(prefab, new Vector3(Random.Range(-4.0f, 4.0f), 0, 88 ), Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -29,6 +30,5 @@ public class SetSpeed : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         hit = true;
-        
     }
 }
